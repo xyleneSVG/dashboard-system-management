@@ -101,10 +101,18 @@ No project data available for this selection
       />
       {/if}
 
-      {#if project_kpi.length > 0}
+      {#if project_kpi.length > 0 && project_kpi[0]?.issue_count !== undefined}
         {#each project_kpi as row}
-          <BigValue data={[row]} value=issue_count title={row.status_normalized} />
+          <BigValue 
+            data={[row]} 
+            value=issue_count 
+            title={row.status_normalized} 
+          />
         {/each}
+      {:else}
+        <Alert status="info">
+          KPI is loading...
+        </Alert>
       {/if}
     </Grid>
 
