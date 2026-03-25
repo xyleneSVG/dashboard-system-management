@@ -24,7 +24,7 @@ queries:
 
 Monitor metrics, work status, and overall team performance.
 
-<Grid cols=2 gapSize=md>
+<Grid cols=2 gapSize=lg>
   <Dropdown 
       name="project_selected" 
       data={list_project} 
@@ -36,7 +36,7 @@ Monitor metrics, work status, and overall team performance.
 <DateRange 
       name="date_filter" 
       title="Date Range Filter"
-      defaultValue="All Time"
+      defaultValue="Last 365 Days"
   />
 </Grid>
 
