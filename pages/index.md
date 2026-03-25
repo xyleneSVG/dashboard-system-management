@@ -252,22 +252,35 @@ No project data available for this selection
 
     ### 📂 Project Directory Structure
 
-    <DirectoryTree 
-        data={project_issues} 
-        pathCol="full_path" 
-    />
+    {#if project_issues.length > 0}
+      {#key project_issues}
+        <DirectoryTree 
+            data={project_issues} 
+            pathCol="full_path" 
+        />
+      {/key}
+    {:else}
+      <Alert status="info">
+        Loading directory...
+      </Alert>
+    {/if}
 
     <br/>
 
     ### 📋 Detailed Issue List
     {#if project_issues.length > 0}
-    <DataTable data={project_issues} search=true rows=10 columns={[
-      { id: 'id', title: 'ID' },
-      { id: 'title_clean', title: 'Task Name' },
-      { id: 'layer', title: 'Layer' },
-      { id: 'complexity', title: 'Complexity' },
-      { id: 'status_normalized', title: 'Status' }
-    ]} />
+      <DataTable 
+        data={project_issues} 
+        search=true 
+        rows=10 
+        columns={[
+          { id: 'id', title: 'ID' },
+          { id: 'title_clean', title: 'Task Name' },
+          { id: 'layer', title: 'Layer' },
+          { id: 'complexity', title: 'Complexity' },
+          { id: 'status_normalized', title: 'Status' }
+        ]} 
+      />
     {:else}
       <Alert status="warning">
         No issues found for the selected filters
