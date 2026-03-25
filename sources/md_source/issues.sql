@@ -1,0 +1,1 @@
+SELECT * FROM mydata.main.issues_clean;
