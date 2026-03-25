@@ -36,7 +36,7 @@ Monitor metrics, work status, and overall team performance.
 <DateRange 
       name="date_filter" 
       title="Date Range Filter"
-      defaultValue="Last 365 Days"
+      defaultValue="All Time"
   />
 </Grid>
 
